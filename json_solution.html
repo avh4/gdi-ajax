@@ -68,11 +68,10 @@
     $('#videos-list').append(videoItem);
  };
  
-$.ajax('videos.json').then(function(videos) {
+$.ajax('aaron\'s picks.json').then(function(videos) {
   for (var i = 0; i < videos.length; i++) {
      addVideoToList(videos[i]);
   }
-  // console.log(data);
 });
  </script>
  </body>
