@@ -35,25 +35,6 @@
  <script type="text/javascript" src="http://teaching-materials.org/ajax/lib/jquery.min.js"></script>
  <script>
 
- var videos = [
-  {"youtubeId": "TddFnTB_7IM",
-    "title": "Trip through the 80s",
-    "author": "meliberty"
-  },
-  {"youtubeId": "epUk3T2Kfno",
-    "title": "Otters Holding Hands",
-    "author": "cynthiaholmes"
-  },
-  {"youtubeId": "il2IrgFHfsg",
-    "title": "The Ooooh Cat",
-    "author": "RnBTree"
-  },
-  {"youtubeId": "oOlDewpCfZQ",
-    "title": "Four Chords",
-    "author": "axisofawesome"
-  }
- ];
-
  var addVideoToList = function(video) {
 
     var videoLink = $('<a>');
@@ -86,10 +67,13 @@
     videoItem.append(videoLink);
     $('#videos-list').append(videoItem);
  };
-
- for (var i = 0; i < videos.length; i++) {
-    addVideoToList(videos[i]);
- }
+ 
+$.ajax('videos.json').then(function(videos) {
+  for (var i = 0; i < videos.length; i++) {
+     addVideoToList(videos[i]);
+  }
+  // console.log(data);
+});
  </script>
  </body>
 </html>
